@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+:root {
+  --offcanvas-width: 270px;
+  --topNabvarHeight: 56px;
+}
+
+.sidebar_nav {
+  width: var(--offcanvas-width);
+}
+
+.sidebar_link {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar_link .right_icon {
+  display: inline-flex;
+}
+
+.sidebar_link[aria-expanded="true"] .right_icon {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important ;
+  }
+
+  /* this is to remove the backdrop */
+  .offcanvas-backdrop::before {
+    display: none;
+  }
+
+  .sidebar_nav {
+    transform: none;
+    visibility: visible !important;
+    top: var(--topNabvarHeight);
+    height: calc(100% - var(--topNabvarHeight));
+  }
+
+  main {
+    margin-left: var(--offcanvas-width);
+  }
+}
